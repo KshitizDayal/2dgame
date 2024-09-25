@@ -24,4 +24,14 @@ class SpaceshipPlayer extends SpriteComponent with HasGameRef<SpaceGame> {
     }
     position.y = newY;
   }
+
+  void move(double delatX) {
+    double newX = position.x + delatX;
+
+    double minX = -(gameRef.size.x / 2) + size.x / 2;
+    double maxX = (gameRef.size.x / 2) - size.x / 2;
+    newX = newX.clamp(minX, maxX);
+
+    position.x = newX;
+  }
 }

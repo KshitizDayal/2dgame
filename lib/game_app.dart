@@ -23,7 +23,7 @@ class _GameAppState extends State<GameApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: ThemeData(scaffoldBackgroundColor: spaceColor),
       home: Scaffold(
         body: SafeArea(
           child: Center(
