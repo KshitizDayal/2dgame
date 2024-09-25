@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:zapit_2dgame/constants/constants.dart';
 import 'package:zapit_2dgame/game/space_game.dart';
 
-class SpaceshipPlayer extends SpriteComponent with HasGameRef<SpaceGame> {
+class Player extends SpriteComponent
+    with HasGameRef<SpaceGame>, CollisionCallbacks {
   @override
   FutureOr<void> onLoad() async {
     super.onLoad();
@@ -12,6 +14,7 @@ class SpaceshipPlayer extends SpriteComponent with HasGameRef<SpaceGame> {
     size = Vector2.all(100);
     position = Vector2(0, (gameHeight / 2) - (size.y));
     anchor = Anchor.topCenter;
+    add(RectangleHitbox());
   }
 
   @override

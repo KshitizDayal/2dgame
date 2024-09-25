@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -7,7 +9,7 @@ import 'package:zapit_2dgame/constants/constants.dart';
 import 'package:zapit_2dgame/game/space_game_world.dart';
 
 class SpaceGame extends FlameGame<SpaceGameWorld>
-    with HorizontalDragDetector, KeyboardEvents {
+    with HorizontalDragDetector, KeyboardEvents, HasCollisionDetection {
   SpaceGame()
       : super(
           world: SpaceGameWorld(),
@@ -16,6 +18,13 @@ class SpaceGame extends FlameGame<SpaceGameWorld>
             height: gameHeight,
           ),
         );
+
+  @override
+  FutureOr<void> onLoad() {
+    super.onLoad();
+    // make it false to remove the squares
+    debugMode = true;
+  }
 
   @override
   Color backgroundColor() {

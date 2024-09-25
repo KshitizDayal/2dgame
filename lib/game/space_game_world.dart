@@ -1,16 +1,24 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:zapit_2dgame/game/sprites/earth.dart';
+import 'package:zapit_2dgame/game/sprites/rock.dart';
 
-import 'player/spaceship_player.dart';
+import 'sprites/player.dart';
 import 'space_game.dart';
 
 class SpaceGameWorld extends World with HasGameRef<SpaceGame> {
-  late final SpaceshipPlayer player;
+  late final Player player;
+  late final Earth earth;
+  late final Rock rock;
+
   @override
   FutureOr<void> onLoad() {
     super.onLoad();
-    player = SpaceshipPlayer();
+    player = Player();
+    earth = Earth();
+
     add(player);
+    add(earth);
   }
 }
