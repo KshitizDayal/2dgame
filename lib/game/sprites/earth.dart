@@ -15,13 +15,13 @@ class Earth extends SpriteComponent
     // size = Vector2.all(300);
     position = Vector2(0, -(gameRef.size.y / 2));
     anchor = Anchor.topCenter;
-    add(RectangleHitbox());
+    add(CircleHitbox());
   }
 
   @override
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
-    if (other is Player && other.position.y < position.y) {
+    if (other is Player && other.position.y > (position.y + 100)) {
       other.removeFromParent();
     }
     super.onCollisionStart(intersectionPoints, other);

@@ -15,7 +15,7 @@ class Rock extends SpriteComponent
     // size = Vector2.all(300);
     position = Vector2(0, -(gameRef.size.y / 2));
     anchor = Anchor.topCenter;
-    add(RectangleHitbox());
+    add(CircleHitbox());
   }
 
   @override
