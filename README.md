@@ -1,4 +1,4 @@
-# zapit_2dgame
+# 2dgame
 
 A new Flutter project.
 
